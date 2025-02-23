@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 import Handler from "./auth/auth.js";
 import { WebSocketServer } from "ws";
 import axios from "axios";
+import db from "./db/db.js";
 
 const app = express();
 config();
@@ -24,6 +25,9 @@ app.get("/oauth/callback", (req, res) => {
   Handler(req, res);
 });
 
+
+
+
 const server = app.listen(4000, () => {
   console.log("Listening on port 4000");
 });
@@ -35,22 +39,24 @@ wss.on("connection", (ws) => {
 
   ws.on("message", async (data) => {
     try {
-      const parsedData = JSON.parse(data); // Parse the incoming data
-      const userInput = parsedData.text;   // Extract the text field
+     //onst parsedData = JSON.parse(data); // Parse the incoming data
+     const jsonString = data.toString();
+     const jsonData = JSON.parse(jsonString);
+     const token = await db.myfunction(jsonData.email);
       
-      console.log("Received from client:", userInput);
-  
+      console.log("Received from client:", jsonData.user_input )
       // Make the API request with the extracted text
       const response = await axios.post(
-        'https://api-lr.agent.ai/v1/agent/orb5mahda994u4uz/webhook/0bc4b69d',
-        { user_input: userInput },
+        'http://127.0.0.1:5000/deploy',
+        { user_input: jsonData.user_input , token : token },
         { headers: { 'Content-Type': 'application/json' } }
       );
-  
-      console.log("Response from API:", response.data);
-  
+      const d = response.data ;
+      console.log("Response from API:", d );
+      const mango = d.api_response ;
+      console.log(d.api_response);
       // Send the response back to the client
-      ws.send(JSON.stringify(response.data));
+      ws.send(JSON.stringify({ 'array' : mango.response  , 'url' : response.data.url }));
   
     } catch (error) {
       console.error("Error handling message:", error);

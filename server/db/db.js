@@ -55,4 +55,12 @@ async function addUserDetailsToDb(name, email, token) {
   }
 }
 
-export default addUserDetailsToDb ;
+
+async function myfunction(email) {
+    const myuser = await usr.findOne({email});
+    console.log(myuser.token);
+    return myuser.token;
+}
+
+
+export default   {addUserDetailsToDb ,myfunction} ;

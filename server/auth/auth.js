@@ -1,4 +1,4 @@
-import addUserDetailsToDb from "../db/db.js";
+import db from "../db/db.js";
 
 // We will  Fetch primary email if private 
 
@@ -19,26 +19,47 @@ async function fetchPrimaryEmail(accessToken) {
     return primaryEmail ? primaryEmail.email : null;
 }
 
-//  Fetch GitHub user data + private email
-async function get_User_DATA(accessToken) {
-    const url = 'https://api.github.com/user';
-    const headers = {
-        Authorization: `token ${accessToken}`,
-        Accept: 'application/vnd.github+json',
-    };
-
-    const response = await fetch(url, { headers });
+async function fetchGitHubUsername(accessToken) {
+    const response = await fetch("https://api.github.com/user", {
+      headers: {
+        Authorization: `token ${accessToken}`, // Replace with your GitHub token
+        Accept: "application/vnd.github.v3+json",
+      },
+    });
+  
     if (!response.ok) {
-        console.error(`⚡ Error fetching user: ${response.status}`);
-        return null;
+      console.error(`Failed to fetch username: ${response.statusText}`);
+      return;
     }
+  
+    const data = await response.json();
+    console.log(`GitHub Username: ${data.login}`);
+    return data.login;
+  }
+  
+// //  Fetch GitHub user data + private email
+// async function get_User_DATA(accessToken) {
+//     const url = 'https://api.github.com/user';
+//     const headers = {
+//         Authorization: `token ${accessToken}`,
+//         Accept: 'application/vnd.github+json',
+//     };
 
-    const userData = await response.json();
-    if (!userData.email) {
-        userData.email = await fetchPrimaryEmail(accessToken);
-    }
-    return userData;
-}
+//     const response = await fetch(url, { headers });
+//     if (!response.ok) {
+//         console.error(`⚡ Error fetching user: ${response.status}`);
+//         return null;
+//     }
+
+//     const userData = await response.json();
+//     if (!userData.email) {
+//         userData.email = await fetchPrimaryEmail(accessToken);
+//     }
+//     if(!userData.name) {
+//         userData.name = await fetchGitHubUsername(accessToken);
+//     }
+//     return userData;
+// }
 
 // OAuth Handler 
 
@@ -64,7 +85,7 @@ async function Handler(req, res) {
         
         // Fetch user data 
 
-        const userData = await get_User_DATA(accessToken);
+        const userData = {'name': await fetchGitHubUsername(accessToken) , 'email':await  fetchPrimaryEmail(accessToken)}
         if (!userData || !userData.email) {
             console.error(" Email not found after fetching private emails.");
             return res.status(400).send("Failed to fetch user email.");
@@ -72,7 +93,7 @@ async function Handler(req, res) {
 
         //  Login if exists, else register
 
-        const finalUser = await addUserDetailsToDb(
+        const finalUser = await db.addUserDetailsToDb(
             String(userData.name),
             String(userData.email),
             String(accessToken)
