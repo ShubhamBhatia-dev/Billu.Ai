@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import "./index.css";
 import { LoginPage } from './pages/login';
-import Dashboard  from './pages/dashboard';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import Dash from './pages/agentchat';
 
@@ -26,8 +25,7 @@ function MainApp() {
   return (
     <Routes>
       <Route path="/" element={<LoginPage />} />
-      <Route path="/dash" element={<Dashboard />} />
-      <Route path="/d" element={<Dash />} />
+      <Route path="/dash" element={<Dash/>} />
     </Routes>
   );
 }
