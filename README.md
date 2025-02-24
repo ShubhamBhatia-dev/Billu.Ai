@@ -1,0 +1,119 @@
+# 🚀 Billu AI
+
+Billu AI is a cutting-edge platform that revolutionizes website creation! 🎉 By leveraging advanced AI technology, Billu AI enables users to generate fully functional and aesthetically pleasing websites simply by describing their requirements in a prompt. This tool is perfect for anyone looking to save time, streamline workflows, and avoid the complexities of manual coding. 💻✨
+
+## 🎯 Purpose
+The primary objective of Billu AI is to make website development effortless for everyone. Whether you're a business owner, a developer, or someone with no coding background, Billu AI empowers you to transform your ideas into reality with just a few clicks. 🚀
+
+## 🛠 Technology Stack
+- *Frontend:* React.js
+- *Backend:* Node.js, Python, Express
+- *Database:* MongoDB
+- *AI Integration:* Agents.AI agent
+
+## 🗂 File Structure
+The repository is organized as follows:
+
+
+Billu.Ai/
+├── frontend/
+│   ├── public/
+│   │            
+│   │   └── assets/             # Static assets (images, styles)
+│   ├── src/
+│   │   ├        
+│   │   ├── pages/ Login , Chat pages      # Page components
+│   │   ├── App.js                         # Main application component
+│   │   └── index.js                       # Entry point of the React application
+│   ├── package.json                       # Frontend dependencies and scripts
+│   └──  index.html
+|   
+├── server/ 
+|   ├── auth /
+|   ├── db /
+│   ├── server.js               # Main Node.js server file
+│   ├── server.py               # Python server for AI tasks
+│   ├── .env                    # Environment variables (not included in repo)
+│   └── package.json            # Backend dependencies and scripts
+├── README.md                   # Project documentation
+└── ...                         # Other project files and directories
+
+
+## 🧑‍💻 How to Run the Project
+Follow these steps to set up and run the project locally:
+
+1. *Clone the Repository:*
+   bash
+   git clone <repository-url>
+   cd Billu.Ai
+   
+
+2. *Frontend Setup:*
+   bash
+   cd frontend
+   npm install
+   npm run dev
+   
+
+3. *Backend Setup:*
+   Navigate back to the root directory and set up the backend:
+   bash
+   cd ..
+   cd server
+   
+
+   - *Add your GitHub token and secret:* Create a .env file and add your credentials:
+     
+     GITHUB_TOKEN=your_github_token
+     SECRET=your_secret_key
+     
+
+   - Install dependencies and start the server:
+     bash
+     npm install
+     node server.js
+     
+
+4. *Python Backend:*
+   Run the Python server:
+   bash
+   python3 server.py
+   
+
+5. *Access the Application:*
+   Open your browser and go to http://localhost:5173 to access the website.
+
+6. *Login:*
+   Use the login screen to authenticate, after which you will be redirected to the dashboard.
+
+## 🌟 Features
+- 🖊 *Automatic Website Generation:* Build websites effortlessly by describing your needs in a text prompt.
+- 🛠 *Code Editor:* View and edit the generated code in an intuitive, built-in editor.
+- 🌐 *GitHub Pages Integration:* Automatically host your website on GitHub Pages for easy sharing and deployment.
+- 📊 *User-Friendly Dashboard:* Navigate with ease and manage your projects efficiently.
+
+## 🔍 Basic Idea of Code
+1. *Authenticate User:* Authenticate users via GitHub and store their access token in MongoDB.
+2. *Redirect to Dashboard:* After successful login, redirect users to the dashboard.
+3. *Handle User Prompt:* Collect the user’s prompt and send it to the backend.
+4. *AI Agent Interaction:* The backend sends the prompt to Agents.AI agents and collects responses from the designer and developer agents.
+5. *GitHub Integration:* Using the access token, create a GitHub repository, upload the generated files, and host the site on GitHub Pages.
+6. *Return Deployment Link:* Provide the link to the deployed website in the chat for user access.
+
+## 🌍 Deployed Website
+Experience Billu AI in action here: [Billu AI Deployed Website](<deployed-website-link>) 🌟
+
+## 🔮 Future Scope
+- 🎨 *Enhanced Templates:* Add more versatile and customizable templates to cater to diverse user needs.
+- 🤖 *Improved AI:* Boost AI capabilities for more sophisticated and dynamic website customization.
+- ☁ *Cloud Hosting:* Enable one-click cloud hosting for instant deployment and scalability.
+
+## 📝 Notes
+Ensure you have the following installed on your system:
+- Node.js
+- Python 3
+- npm
+
+Billu AI is open for contributions! Feel free to fork the repository, submit pull requests, or report any issues. Together, let's make website building accessible to everyone! 🙌
+
+Happy coding! 💻
