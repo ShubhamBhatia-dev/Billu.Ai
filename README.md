@@ -21,7 +21,7 @@ Whether you're a business owner, a developer, or someone with no coding backgrou
 
 ## 🛠 Technology Stack
 - **Frontend:** React.js  
-- **Backend:** Node.js, Python, Express  
+- **Backend:** Node.js, Python, Express  , Web Sockets 
 - **Database:** MongoDB  
 - **AI Integration:** Agents.AI agent  
 
