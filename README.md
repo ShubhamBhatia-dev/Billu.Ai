@@ -59,10 +59,12 @@ cd server
 ```
 
 - **Add your GitHub token and secret** by creating a **GitHub OAuth App**.  
-  Create a `.env` file and add your credentials:
+  Create a `.env` file and add your credentials , also add own url to MongoDB server:
   ```env
   GITHUB_TOKEN=your_github_token
   GITHUB_SECRET_KEY=your_secret_key
+
+  In server/db/db.js Update the MongoDB url with your Database Url .
   ```
 
 - Install dependencies and start the server:
