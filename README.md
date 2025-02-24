@@ -1,4 +1,9 @@
 # 🚀 Billu AI
+## LOGIN PAGE GLIMPSE
+![alt text](https://i.imgur.com/15sXcQ5.png "BilluAI DASHBOARD")
+
+## DASBOARD PAGE GLIMPSE
+![alt text](https://i.imgur.com/blw4rv9.png "BilluAI DASHBOARD")
 
 Billu AI is a cutting-edge platform that revolutionizes website creation! 🎉 By leveraging advanced AI technology, Billu AI enables users to generate fully functional and aesthetically pleasing websites simply by describing their requirements in a prompt. This tool is perfect for anyone looking to save time, streamline workflows, and avoid the complexities of manual coding. 💻✨
 
@@ -14,70 +19,47 @@ The primary objective of Billu AI is to make website development effortless for 
 ## 🗂 File Structure
 The repository is organized as follows:
 
-
-Billu.Ai/
-├── frontend/
-│   ├── public/
-│   │            
-│   │   └── assets/             # Static assets (images, styles)
-│   ├── src/
-│   │   ├        
-│   │   ├── pages/ Login , Chat pages      # Page components
-│   │   ├── App.js                         # Main application component
-│   │   └── index.js                       # Entry point of the React application
-│   ├── package.json                       # Frontend dependencies and scripts
-│   └──  index.html
-|   
-├── server/ 
-|   ├── auth /
-|   ├── db /
-│   ├── server.js               # Main Node.js server file
-│   ├── server.py               # Python server for AI tasks
-│   ├── .env                    # Environment variables (not included in repo)
-│   └── package.json            # Backend dependencies and scripts
-├── README.md                   # Project documentation
-└── ...                         # Other project files and directories
-
+![alt text](https://i.imgur.com/R6e3zn4.png "Directory")
 
 ## 🧑‍💻 How to Run the Project
 Follow these steps to set up and run the project locally:
 
 1. *Clone the Repository:*
-   bash
+``bash 
    git clone <repository-url>
-   cd Billu.Ai
+   cd Billu.Ai  ``
    
 
 2. *Frontend Setup:*
-   bash
+  `` bash
    cd frontend
    npm install
-   npm run dev
+   npm run dev``
    
 
 3. *Backend Setup:*
    Navigate back to the root directory and set up the backend:
-   bash
+ ``  bash
    cd ..
-   cd server
+   cd server ``
    
 
-   - *Add your GitHub token and secret:* Create a .env file and add your credentials:
+   - *Add your GitHub token and secret  by creating a GITHUB OAUTH APP :* Create a .env file and add your credentials:
      
-     GITHUB_TOKEN=your_github_token
-     SECRET=your_secret_key
+      GITHUB_TOKEN=your_github_token
+      GITHUB_SECRET_KEY=your_secret_key
      
 
    - Install dependencies and start the server:
-     bash
+    `` bash
      npm install
-     node server.js
+     node server.js ``
      
 
 4. *Python Backend:*
    Run the Python server:
-   bash
-   python3 server.py
+  `` bash
+   python3 server.py``
    
 
 5. *Access the Application:*
