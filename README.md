@@ -59,7 +59,7 @@ cd server
 ```
 
 - **Add your GitHub token and secret** by creating a **GitHub OAuth App**.  
-  Create a `.env` file and add your credentials , also add own url to MongoDB server:
+  Create a `.env` file and add your credentials , also add your own url to a MongoDB server:
   ```env
   GITHUB_TOKEN=your_github_token
   GITHUB_SECRET_KEY=your_secret_key
@@ -76,6 +76,7 @@ cd server
 ### 4️⃣ Python Backend:
 Run the Python server:
 ```bash
+pip install flask requests
 python3 server.py
 ```
 
